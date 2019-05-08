@@ -36,4 +36,10 @@ public class RideController {
 		
 	}
 	
+	@RequestMapping(value = "/ride", method = RequestMethod.PUT)
+	public @ResponseBody Ride updateRide(@RequestBody Ride ride) {
+		return rideService.updateRide(ride);
+		
+	}
+	
 }
