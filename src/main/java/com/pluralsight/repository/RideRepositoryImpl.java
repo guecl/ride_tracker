@@ -3,15 +3,11 @@ package com.pluralsight.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -65,7 +61,7 @@ public class RideRepositoryImpl implements RideRepository {
 		return getRide(id.intValue());
 	}
 	
-	private Ride getRide(Integer id) {
+	public Ride getRide(Integer id) {
 		Ride ride = jdbcTemplate.queryForObject("select * from ride where id = ?", new RiderRowMapper(), id);
 		return ride;
 	}
@@ -75,5 +71,7 @@ public class RideRepositoryImpl implements RideRepository {
 		List<Ride> rides = jdbcTemplate.query("select * from ride", new RiderRowMapper());
 		return rides;
 	}
+
+
 	
 }
