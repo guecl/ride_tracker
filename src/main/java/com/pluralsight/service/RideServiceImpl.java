@@ -48,4 +48,10 @@ public class RideServiceImpl implements RideService {
 		rideRepository.updateRides(pairs);
 		
 	}
+
+	@Override
+	public void delete(Integer id) {
+		rideRepository.delete(id);
+		
+	}
 }
